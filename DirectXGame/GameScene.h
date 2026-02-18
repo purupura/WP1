@@ -41,12 +41,13 @@ private:
 	Stage* stage_ = nullptr;
 
 	//モデル
-	Model* model = nullptr;
+	Model* model_ = nullptr;
 	Model* modelBall_ = nullptr;
 	Model* modelPlayer_ = nullptr;
 	Model* modelStage_ = nullptr;
 
 	Vector3 playerPos = {-2, -4.0, -40};
+	WorldTransform worldTransform_;
 
 	uint32_t textureHandle_ = 0;
 	uint32_t textureHandle2_ = 0;

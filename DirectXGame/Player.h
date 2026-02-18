@@ -11,7 +11,7 @@ class Input;
 
 class Player {
 public:
-	void Initialize(KamataEngine::Model* model, KamataEngine::Camera* camera, const KamataEngine::Vector3& pos);
+	void Initialize(KamataEngine::Model* model, KamataEngine::Camera* camera, uint32_t texture);
 	void Update();
 	void Draw();
 	~Player();

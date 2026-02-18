@@ -92,7 +92,7 @@ int WINAPI WinMain(_In_ HINSTANCE, _In_opt_ HINSTANCE, _In_ LPSTR, _In_ int) {
 	clearScene->Initialize();
 
 	// シーンをタイトルシーンに設定
-	scene = Scene::kTitle;
+	scene = Scene::kGame;
 	// scene = Scene::kGameScene;
 
 	// メインループ

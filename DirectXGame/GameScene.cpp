@@ -1,7 +1,8 @@
 #include "GameScene.h"
 GameScene::~GameScene() { 
 	delete modelPlayer_;
-	delete player_; 
+	delete player_;
+	delete model_;
 }
 
 void GameScene::Initialize() {
@@ -13,17 +14,18 @@ void GameScene::Initialize() {
 	//==============================================================
 	camera_ = new Camera();                            
 	camera_->Initialize();
-
+	worldTransform_.Initialize();
 	//==============================================================
 	// スプライト生成
 	//==============================================================
 	uint32_t redTex = TextureManager::Load("white1x1.png");
 	redRect_ = Sprite::Create(redTex, {0, 0});
-	textureHandle_ = KamataEngine::TextureManager::Load("sample.png");
+	textureHandle_ = KamataEngine::TextureManager::Load("LE3D.jpg");
 	TestSprite_ = Sprite::Create(textureHandle_, {0, 0});
 	//==============================================================
 	// モデル読み込み
 	//==============================================================
+	model_ = KamataEngine::Model::Create();
 	modelPlayer_ = KamataEngine::Model::CreateFromOBJ("player", true);
 	modelBall_ = KamataEngine::Model::CreateFromOBJ("ball", true);
 	modelStage_ = KamataEngine::Model::CreateFromOBJ("stage", true);
@@ -31,7 +33,7 @@ void GameScene::Initialize() {
 	//オブジェクト生成
 	//==============================================================
 	player_ = new Player();
-	player_->Initialize(modelPlayer_, camera_, playerPos);
+	player_->Initialize(modelPlayer_, camera_, textureHandle_);
 	ball_ = new Ball();
 	ball_->Initialize(modelBall_, camera_, {0,-1.0,10});
 	stage_ = new Stage();
@@ -77,9 +79,7 @@ void GameScene::Draw() {
 	// 3Dオブジェクト描画前処理
 	KamataEngine::Model::PreDraw();
 
-	player_->Draw();
-	ball_->Draw();
-	stage_->Draw();
+	modelPlayer_->Draw();
 
 	/// <summary>
 	/// ここにモデルの描画処理を追加できる

@@ -4,14 +4,13 @@
 
 Player::~Player() {}
 
-void Player::Initialize(KamataEngine::Model* model, KamataEngine::Camera* camera, const KamataEngine::Vector3& pos) {
+void Player::Initialize(KamataEngine::Model* model, KamataEngine::Camera* camera,uint32_t texture) {
 
 	assert(model);
 	model_ = model;
 	camera_ = camera;
-	worldtransfrom_.translation_ = pos;
 	input_ = KamataEngine::Input::GetInstance();
-	worldtransfrom_.Initialize();
+
 }
 
 // ワールド座標を取得
