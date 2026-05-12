@@ -4,6 +4,7 @@ GameScene::~GameScene() {
 	delete player_; 
 }
 
+
 void GameScene::Initialize() {
 	dxCommon_ = KamataEngine::DirectXCommon::GetInstance(); 
 	input_ = KamataEngine::Input::GetInstance();            
