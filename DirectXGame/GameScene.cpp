@@ -38,6 +38,7 @@ void GameScene::Initialize() {
 	stage_ = new Stage();
 	stage_->Initialize(modelStage_, camera_, {-40, -10, 50});
 	//==============================================================
+
 }
 
 void GameScene::Update() {
