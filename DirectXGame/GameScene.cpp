@@ -48,7 +48,6 @@ void GameScene::Update() {
 	player_->Update();
 	ball_->Update();
 	stage_->Update();
-	
 }
 
 void GameScene::Draw() {
