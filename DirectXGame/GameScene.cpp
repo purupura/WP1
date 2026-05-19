@@ -7,7 +7,7 @@ GameScene::~GameScene() {
 
 void GameScene::Initialize() {
 	dxCommon_ = KamataEngine::DirectXCommon::GetInstance(); 
-	input_ = KamataEngine::Input::GetInstance();            
+	input_ = KamataEngine::Input::GetInstance();
 	audio_ = KamataEngine::Audio::GetInstance();
 	//==============================================================
 	// カメラ生成
@@ -44,6 +44,7 @@ void GameScene::Initialize() {
 void GameScene::Update() {
 	// ビュープロジェクションの初期化
 	// camera_.Initialize();
+
 	if (input_->TriggerKey(DIK_SPACE)) {
 		isFinished_ = true;
 	}
