@@ -1,23 +1,30 @@
 #pragma once
 #include <KamataEngine.h>
-#include <list>
-
-class Enemy;
-class GameScene;
 
 namespace KamataEngine {
 class Input;
-};
+}
 
 class Player {
 public:
 	void Initialize(KamataEngine::Model* model, KamataEngine::Camera* camera, const KamataEngine::Vector3& pos);
+
 	void Update();
 	void Draw();
-	~Player();
-	
 
-	KamataEngine::Vector3 GetWorldPosition();
+	~Player();
+
+	// getter
+	KamataEngine::Vector3 GetWorldPosition() const;
+
+	bool IsDead() const;
+	bool IsHit() const;
+	bool IsSwing() const;
+
+	// setter
+	void SetDead(bool flag);
+	void SetHit(bool flag);
+	void SetSwing(bool flag);
 
 	static inline const float kWidth = 1.0f;
 	static inline const float kHeight = 1.0f;
@@ -28,7 +35,8 @@ private:
 	bool isL_ = false;
 	bool isHit_ = false;
 	bool isSwing_ = false;
-	KamataEngine::WorldTransform worldtransfrom_;
+
+	KamataEngine::WorldTransform worldTransform_;
 
 	KamataEngine::Model* model_ = nullptr;
 	KamataEngine::Model* model2_ = nullptr;
@@ -44,7 +52,7 @@ private:
 
 	static inline const float kJumpAcceleration = 1.0f;
 	static inline const float kLimitFallSpeed = 0.03f;
-	bool onGround_ = true;
-
 	static inline const float kGravityAcceleration = 0.5f;
+
+	bool onGround_ = true;
 };
